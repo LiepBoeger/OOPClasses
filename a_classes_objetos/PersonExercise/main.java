@@ -1,7 +1,7 @@
 import javax.swing.JOptionPane;
 
 public class main {
-    public static void main(String[] args){
+    public static void principal(String[] args){
         int n = Integer.parseInt(JOptionPane.showInputDialog("Quantidade de pessoas: "));
         Pessoa pessoas[] = new Pessoa[n];
         String resultado = "";
