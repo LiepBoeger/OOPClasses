@@ -7,34 +7,34 @@ import javax.swing.JOptionPane;
 
 public class Main {
     public static void main(String[] args) {
-        List<Times> times = new ArrayList<>();
+        List<Team> teams = new ArrayList<>();
 
-        int numTimes = Integer.parseInt(JOptionPane.showInputDialog("Digite o número de times:"));
+        int numteams = Integer.parseInt(JOptionPane.showInputDialog("Number of teams:"));
 
-        for (int i = 0; i < numTimes; i++) {
-            String nomeTime = JOptionPane.showInputDialog("Digite o nome do time " + (i + 1) + ":");
-            Times time = new Times(nomeTime);
+        for (int i = 0; i < numteams; i++) {
+            String teamName = JOptionPane.showInputDialog("Team name " + (i + 1) + ":");
+            Team team = new Team(teamName);
 
-            int numJogadores = Integer.parseInt(JOptionPane.showInputDialog("Digite o número de jogadores para o time " + nomeTime + ":"));
+            int numPlayers = Integer.parseInt(JOptionPane.showInputDialog("Total players for team " + teamName + ":"));
 
-            for (int j = 0; j < numJogadores; j++) {
-                String nomeJogador = JOptionPane.showInputDialog("Digite o nome do jogador " + (j + 1) + " do time " + nomeTime + ":");
-                int numeroCamisa = Integer.parseInt(JOptionPane.showInputDialog("Digite o número da camisa do jogador " + nomeJogador + ":"));
-                int golsMarcados = Integer.parseInt(JOptionPane.showInputDialog("Digite a quantidade de gols marcados pelo jogador " + nomeJogador + ":"));
+            for (int j = 0; j < numPlayers; j++) {
+                String nameplayer = JOptionPane.showInputDialog("Player name" + (j + 1) + " of the team " + teamName + ":");
+                int shirtNumber = Integer.parseInt(JOptionPane.showInputDialog("Shirt number of the player " + nameplayer + ":"));
+                int totalGoals = Integer.parseInt(JOptionPane.showInputDialog("Total goals of the player " + nameplayer + ":"));
 
-                Jogador jogador = new Jogador(nomeJogador, numeroCamisa, golsMarcados);
-                time.cadastrarJogador(jogador);
+                Player player = new Player(nameplayer, shirtNumber, totalGoals);
+                team.newPlayer(player);
             }
 
-            times.add(time);
+            teams.add(team);
         }
 
         StringBuilder result = new StringBuilder();
 
-        for (Times time : times) {
-            result.append("Time: ").append(time.toString()).append("\n");
-            result.append("Jogadores: ").append(time.listarJogadores()).append("\n");
-            result.append("Jogador com mais gols: ").append(time.jogadorComMaisGols()).append("\n");
+        for (Team team : teams) {
+            result.append("Team: ").append(team.toString()).append("\n");
+            result.append("Players: ").append(team.listPlayers()).append("\n");
+            result.append("Plasyer with more goals: ").append(team.playerWithMoreGoals()).append("\n");
             result.append("\n");
         }
 
